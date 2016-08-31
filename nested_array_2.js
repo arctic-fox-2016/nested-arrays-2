@@ -2,10 +2,27 @@
 
 // ------- RELEASE 0 ----------
 
-function tic_tac_toe_board() {
-  var xo_random = ["X","O","X","O","X","O","X","O","X"]
-  //write your code here
+function createChunk(){
+  chunk = []
+  for (var j=0; j<=2;j++){
+    if (Math.random() < 0.5){
+      chunk[j] = "X"
+    } else {
+      chunk[j] = "O"
+    }
+  }
+  return chunk;
+}
 
+
+function tic_tac_toe_board() {
+  //write your code here
+  var board = [];
+  var chunk = []
+  for (var i=0; i<=2;i++){
+    board.push(createChunk())
+  }
+  return board;
 }
 
 console.log(tic_tac_toe_board()) // => make a random tic tic board
@@ -23,10 +40,17 @@ var roster = [["Number", "Name", "Position", "Points per Game"],
 
 // [[roster[0][0], roster[1][0]], [roster[0][1], roster[1][1]],...
 
-
+function createList (index){
+  var pemain = { "Number": roster[index][0], "Name": roster[index][1], "Position": roster[index][2], "Points per Game": roster[index][3]}
+  return pemain
+}
 function convert_roster_format(nestedArray) {
   // your convert code here
-
+  let listPemain = []
+  for (i=1;i<=5;i++){
+    listPemain.push(createList(i))
+  }
+  return listPemain
 }
 
 
