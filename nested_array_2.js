@@ -6,6 +6,14 @@ function tic_tac_toe_board() {
   var xo_random = ["X","O","X","O","X","O","X","O","X"]
   //write your code here
 
+  let papan_tic = []
+  let i, j, chunk = 3
+
+  for (i=0, j=xo_random.length; i<j ; i+= chunk ){
+    papan_tic.push(xo_random.slice(i, i+chunk))
+  }
+
+  return papan_tic;
 }
 
 console.log(tic_tac_toe_board()) // => make a random tic tic board
@@ -26,13 +34,27 @@ var roster = [["Number", "Name", "Position", "Points per Game"],
 
 function convert_roster_format(nestedArray) {
   // your convert code here
-
+  var array = [];
+  
+  for (var i = 1; i < nestedArray.length ; i++){
+    // data_person = {};
+    // data_person.number = nestedArray[i][0];
+    // data_person.Name = nestedArray[i][1];
+    // data_person.position = nestedArray[i][2];
+    // data_person.pointsPerGame = nestedArray[i][3];
+    array.push({
+      'number' : nestedArray[i][0],
+      'name' : nestedArray[i][1],
+      'position' : nestedArray[i][2],
+      'pointsPerGame' : nestedArray [i][3]
+    });
+  }
+  return array;
 }
 
 
 var object_roster = convert_roster_format(roster)
 console.log(object_roster[2])
-
 // => { "Number": 31, "Name": "Harvey Kay", "Position": "Shooting Guard", "Points per Game": [0, 30, 16, 0, 25] }
 
-console.log(object_roster[0]["Name"] == "Joe Schmo")   // outputs true
+console.log(object_roster[0]["name"] == "Joe Schmo")   // outputs true
